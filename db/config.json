@@ -1,0 +1,11 @@
+{
+    "production": {
+        "url": "mongodb://localhost/carpool"
+    },
+    "test": {
+        "url": "mongodb://localhost/carpool-test"
+    },
+    "development": {
+        "url": "mongodb://localhost/carpool-dev"
+    }
+}
