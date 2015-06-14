@@ -11,7 +11,10 @@
     <title>Carpool Now!</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet"
+  href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="app.css">   
+
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
@@ -24,7 +27,7 @@
 
      <!-- JS -->
     <script src="//code.jquery.com/jquery-2.1.0.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
     <script src="main.js"></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
   </head>
@@ -61,18 +64,19 @@
       <div class="container">
         <h1>Carpool Now!</h1>
         <p>A carpool server that can find users nearby at the real time.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <p>There are <span id="mycount"></span> people connected</p>
       </div>
     </div>
+   
 
-    <div>
-      <input type="text" ng-model="yourMessage" placeholder="Enter a message">
+    <div class="container">
+      <input id="myid" type="text" ng-model="yourMessage" placeholder="Enter a message">
       <hr>
       <p id="messages">You type: {{yourMessage}}</p>
-    </div>
 
-      <hr>
 
+      <div id="map"></div>
+      
       <footer>
         <p>&copy; Company 2014</p>
       </footer>
@@ -85,7 +89,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="//d3js.org/topojson.v1.min.js"></script>
+    <script src="d3.js"></script> 
   </body>
 </html>
 
