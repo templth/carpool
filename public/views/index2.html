@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Carpool Now!</title>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <div class="col-md-8">
+          <h1>Carpool Now!</h1>
+          <p>A carpool serveice that can find users nearby at the real time.</p>
+          <p>There are <span id="mycount"></span> people connected</p>
+        </div> 
+        <div class="col-md-4">    
+          <form class="form-signin">
+            <h2 class="form-signin-heading">Register now!</h2>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <label for="inputName" class="sr-only">Name</label>
+            <input type="name" id="inputName" class="form-control" placeholder="Your name" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <label for="confirmInputPassword" class="sr-only">Confirm password</label>
+            <input type="password" id="confirmInputPassword" class="form-control" placeholder="Confirm Password" required>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+          </form>
+        </div>  
+      </div>
+    </div>  
+   
+
+    <div class="container">
+      <input id="myid" type="text" ng-model="yourMessage" placeholder="Enter a message">
+      <hr>
+      <p id="messages">You type: {{yourMessage}}</p>
+
+
+      <div id="map"></div>
+      
+      <footer>
+        <p>&copy; Company 2014</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>   
+     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--script src="../../assets/js/ie10-viewport-bug-workaround.js"></script-->
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="//d3js.org/topojson.v1.min.js"></script>
+    <script src="d3.js"></script> 
+  </body>
+</html>
+
+
+
+
+
+

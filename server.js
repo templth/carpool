@@ -1,14 +1,15 @@
-require('./db/connect');
+require('./config/db/connect');
 var socket_io = require('socket.io');
 var http = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
-var userRoutes = require('./routes/user');
+var routes = require('./app/routes');
+var port = process.env.PORT || 8080
 
 var app = express();
 app.use(bodyParser.json());
-app.use(express.static('public'));
-app.use('/', userRoutes);
+app.use(express.static(__dirname + '/public'));
+app.use('/', routes);
 
 var server = http.Server(app);
 var io = socket_io(server);
@@ -31,4 +32,6 @@ io.on('connection', function (socket) {
 });
 
 
-server.listen(8080);
+server.listen(port);
+
+exports = module.exports = app
