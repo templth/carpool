@@ -6,7 +6,7 @@ var path = require('path');
 
 //User routes
 /* GET /users */
-router.list('/users', function(req, res) {
+router.get('/users', function(req, res) {
     User.find(function(err, users) {
         if (err) {
             res.status(400).json(err);
@@ -17,7 +17,7 @@ router.list('/users', function(req, res) {
 });
 
 /* POST /users */
-router.create('/users', function(req, res) {
+router.post('/users', function(req, res) {
     var user = {
         name: req.body.name,
         email: req.body.email
@@ -27,13 +27,13 @@ router.create('/users', function(req, res) {
             res.status(400).json(err);
             return;
         }
-        res.status(201).json(user);
+        res.status(201).location('/users'+user.name).json(user);
     });
 });
 
 
 /* GET /users/:id */
-router.read('/users/name', function(req, res) {
+router.get('/users/:name', function(req, res) {
     var name = req.params.name;
     User.findOne({name: name}, function(err, user) {
         if (err) {
@@ -44,7 +44,7 @@ router.read('/users/name', function(req, res) {
     });
 });
 
-router.update('/users', function(req, res) {
+router.put('/users/:name', function(req, res) {
     var user = {
         name: req.body.name,
         email: req.body.email
@@ -54,18 +54,18 @@ router.update('/users', function(req, res) {
             res.status(400).json(err);
             return;
         }
-        res.status(201).json(user);
+        res.json(user);
     });
 });
 
-router.del('/users/name', function(req, res) {
+router.delete('/users/:name', function(req, res) {
     var name = req.params.name;
     User.findOneAndRemove({name: name}, function(err, user) {
         if (err) {
             res.status(400).json(err);
             return;
         }
-        res.status(201).json(user);
+        res.end();
     });
 
 });
