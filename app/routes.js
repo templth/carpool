@@ -34,7 +34,7 @@ router.create('/users', function(req, res) {
 
 /* GET /users/:id */
 router.read('/users/name', function(req, res) {
-    var name = req.params.name
+    var name = req.params.name;
     User.findOne({name: name}, function(err, user) {
         if (err) {
             res.status(400).json(err);
@@ -59,8 +59,8 @@ router.update('/users', function(req, res) {
 });
 
 router.del('/users/name', function(req, res) {
-    name: req.body.name,
-    User.findOneAndDelete({name: name}, function(err, user) {
+    var name = req.params.name;
+    User.findOneAndRemove({name: name}, function(err, user) {
         if (err) {
             res.status(400).json(err);
             return;
