@@ -27,7 +27,7 @@ router.post('/users', function(req, res) {
             res.status(400).json(err);
             return;
         }
-        res.status(201).location('/users'+user.name).json(user);
+        res.status(201).location('/users/'+user.name).json(user);
     });
 });
 
