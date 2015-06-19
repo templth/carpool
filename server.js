@@ -18,9 +18,6 @@ var io = socket_io(server);
 io.on('connection', function (socket) {
     console.log('Client connected');
 
-    // socket.on('newUser', function(message) {
-        
-    // });
     socket.on('message', function(message) {
         console.log('Received message:', message);
         socket.broadcast.emit('message', message);

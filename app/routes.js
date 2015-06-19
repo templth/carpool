@@ -6,7 +6,7 @@ var path = require('path');
 
 //User routes
 /* GET /users */
-router.get('/users', function(req, res) {
+router.list('/users', function(req, res) {
     User.find(function(err, users) {
         if (err) {
             res.status(400).json(err);
@@ -17,12 +17,11 @@ router.get('/users', function(req, res) {
 });
 
 /* POST /users */
-router.post('/users', function(req, res) {
+router.create('/users', function(req, res) {
     var user = {
         name: req.body.name,
         email: req.body.email
     };
-    console.log(req.body);
     User.create(user, function(err, user) {
         if (err) {
             res.status(400).json(err);
@@ -33,7 +32,44 @@ router.post('/users', function(req, res) {
 });
 
 
-//TODO: GET /users/:id
+/* GET /users/:id */
+router.read('/users/name', function(req, res) {
+    var name = req.params.name
+    User.findOne({name: name}, function(err, user) {
+        if (err) {
+            res.status(400).json(err);
+            return;
+        }
+        res.json(user);
+    });
+});
+
+router.update('/users', function(req, res) {
+    var user = {
+        name: req.body.name,
+        email: req.body.email
+    };
+    User.findOneAndUpdate(user, function(err, user) {
+        if (err) {
+            res.status(400).json(err);
+            return;
+        }
+        res.status(201).json(user);
+    });
+});
+
+router.del('/users/name', function(req, res) {
+    name: req.body.name,
+    User.findOneAndDelete({name: name}, function(err, user) {
+        if (err) {
+            res.status(400).json(err);
+            return;
+        }
+        res.status(201).json(user);
+    });
+
+});
+
 
  // frontend routes =========================================================
  // route to handle all angular requests

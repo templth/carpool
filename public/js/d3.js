@@ -25,7 +25,7 @@ svg.append("rect")
 
 var g = svg.append("g");
 
-d3.json("/countries.topo.json", function(error, us) {
+d3.json("../json/countries.topo.json", function(error, us) {
   g.append("g")
     .attr("id", "countries")
     .selectAll("path")
@@ -70,7 +70,7 @@ function country_clicked(d) {
     country = d;
 
     if (d.id  == 'USA' || d.id == 'JPN') {
-      d3.json("/states_" + d.id.toLowerCase() + ".topo.json", function(error, us) {
+      d3.json("../json/states_" + d.id.toLowerCase() + ".topo.json", function(error, us) {
         g.append("g")
           .attr("id", "states")
           .selectAll("path")
@@ -105,7 +105,7 @@ function state_clicked(d) {
     country_code = state.id.substring(0, 3).toLowerCase();
     state_name = state.properties.name;
 
-    d3.json("/cities_" + country_code + ".topo.json", function(error, us) {
+    d3.json("../json/cities_" + country_code + ".topo.json", function(error, us) {
       g.append("g")
         .attr("id", "cities")
         .selectAll("path")
